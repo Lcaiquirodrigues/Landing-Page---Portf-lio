@@ -33,10 +33,12 @@ const PORTFOLIO_DATA = {
     // Ícones de Tecnologias (Hero Section)
     tecnologias: [
         { nome: "Power BI", icone: "fa-solid fa-chart-column" },
-        { nome: "Excel", icone: "fa-solid fa-file-excel" },
-        { nome: "SQL", icone: "fa-solid fa-database" },
         { nome: "Python", icone: "fa-brands fa-python" },
+        { nome: "SQL", icone: "fa-solid fa-database" },
+        { nome: "n8n", icone: "fa-solid fa-diagram-project" },
+        { nome: "Excel", icone: "fa-solid fa-file-excel" },
         { nome: "Figma", icone: "fa-brands fa-figma" }
+        
     ],
 
     // Formação Acadêmica
