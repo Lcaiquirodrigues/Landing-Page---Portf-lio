@@ -99,7 +99,7 @@ const PORTFOLIO_DATA = {
             label: "WHATSAPP",
             valor: "82 9 9643-5755",
             icone: "fa-brands fa-whatsapp",
-            link: "https://wa.me/5582994428788"
+            link: "https://wa.me/558296435755"
         },
         {
             label: "LINKEDIN",
