@@ -97,7 +97,7 @@ const PORTFOLIO_DATA = {
     contatos: [
         {
             label: "WHATSAPP",
-            valor: "82 9 9442-8788",
+            valor: "82 9 9643-5755",
             icone: "fa-brands fa-whatsapp",
             link: "https://wa.me/5582994428788"
         },
@@ -109,9 +109,9 @@ const PORTFOLIO_DATA = {
         },
         {
             label: "EMAIL",
-            valor: "caiquirodrigues84@gmail.com",
+            valor: "caiquirodrigues94@gmail.com",
             icone: "fa-solid fa-envelope",
-            link: "mailto:caiquirodrigues84@gmail.com"
+            link: "mailto:caiquirodrigues94@gmail.com"
         },
         {
             label: "INSTAGRAM",
