@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caiqui Rodrigues - Portfólio</title>
+    
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR FIXA -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- LADO ESQUERDO: Botões de Ação -->
+            <div class="nav-actions">
+                <a href="https://drive.google.com/file/d/1Xr8zoDCxhrZfbBGZM5V7ZP7p-sc-Xq9c/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-nav btn-secondary">
+                    <i class="fa-solid fa-download"></i> Baixar Currículo
+                </a>
+                <a href="https://github.com/Lcaiquirodrigues" target="_blank" rel="noopener noreferrer" class="btn-nav btn-secondary">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
+
+            <!-- LADO DIREITO: Links de Navegação -->
+            <div class="nav-links" id="container-navbar-links">
+                <!-- Os botões do menu são gerados dinamicamente via JS -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="portfolio-wrapper" id="top">
+
+        <!-- SEÇÃO HERO -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="subtitle" id="data-cargo"></div>
+                <h1 class="main-title">
+                    <span class="gold-text" id="data-primeiro-nome"></span> 
+                    <span class="white-text" id="data-sobrenome"></span>
+                </h1>
+
+                <p class="description" id="data-headline"></p>
+
+                <!-- ÍCONES TECNOLÓGICOS -->
+                <div class="tech-icons-container" id="container-tech-icons"></div>
+            </div>
+
+            <div class="hero-avatar">
+                <img id="data-foto" src="" alt="Foto de Perfil">
+            </div>
+        </section>
+
+        <!-- SOBRE MIM -->
+        <section id="sobre">
+            <h2 class="section-header" id="title-sobre">Sobre mim</h2>
+            <div class="about-card">
+              
+                <!-- FORMAÇÃO ACADÊMICA -->
+                <div class="academic-block">
+                    <div class="academic-title">
+                        <i class="fa-solid fa-graduation-cap"></i> <span id="title-academico">Formação Acadêmica</span>
+                    </div>
+                    <ul class="academic-list" id="container-academico"></ul>
+                </div>
+
+                <p id="data-sobre-1"></p>
+                <p id="data-sobre-2"></p>
+            </div>
+        </section>
+
+        <!-- PRINCIPAIS HABILIDADES -->
+        <section id="habilidades">
+            <h2 class="section-header" id="title-habilidades">Principais habilidades</h2>
+            <div class="skills-grid" id="container-habilidades"></div>
+        </section>
+
+        <!-- PROJETOS -->
+        <section id="projetos">
+            <h2 class="section-header" id="title-projetos">Projetos - Power BI</h2>
+            <div class="projects-grid" id="container-projetos"></div>
+        </section>
+
+        <!-- CONTATO -->
+        <section id="contato">
+            <h2 class="section-header" id="title-contatos">Contato</h2>
+            <div class="contact-grid" id="container-contatos"></div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            © <span id="data-ano"></span> <span id="data-nome-footer"></span> · <span id="data-area-footer">Análise de Dados</span>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Externo -->
+    <script src="script.js"></script>
+</body>
+</html>

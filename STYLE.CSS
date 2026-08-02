@@ -1,0 +1,681 @@
+/* ==========================================================================
+   1. VARIÁVEIS DE CONFIGURAÇÃO GLOBAL (CSS)
+   ========================================================================== */
+:root {
+    /* --- PALETA DE CORES --- */
+    --bg-color: #0f141d;          /* Cor de fundo da página */
+    --card-bg: #1e232d;           /* Cor de fundo dos cards */
+    --card-hover-bg: #151a23;     /* Cor de fundo ao passar o mouse */
+    --text-gold: #e5b342;         /* Cor de destaque (Dourado/Amarelo) */
+    --text-white: #ffffff;        /* Cor do texto principal */
+    --text-gray: #e2e8f0;         /* Cor do texto secundário/descrições */
+    --border-color: #2b313d;      /* Cor das bordas genéricas */
+
+    /* --- TIPOGRAFIA & TAMANHOS DE FONTE --- */
+    --font-family-main: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    --font-size-title-main: 50px; /* Tamanho do nome principal */
+    --font-size-subtitle: 13px;   /* Tamanho do cargo */
+    --font-size-section: 22px;    /* Tamanho do título das seções */
+    --font-size-card-title: 16px; /* Tamanho dos títulos dentro dos cards */
+    --font-size-body: 14px;       /* Tamanho dos textos de parágrafo */
+    --font-size-sm: 13px;         /* Tamanho de descrições menores */
+    --font-size-xs: 11px;         /* Tamanho de tooltips e labels */
+
+    /* --- CONTROLE DA FOTO DE PERFIL --- */
+    --avatar-size: 260px;            /* Largura e altura da foto de perfil */
+    --avatar-border-width: 0px;      /* Espessura da borda em gradiente */
+
+    /* --- CONTROLE DOS ÍCONES TECNOLÓGICOS (HERO) --- */
+    --tech-icon-box-size: 35px;      /* Tamanho da caixa do ícone (largura/altura) */
+    --tech-icon-font-size: 17px;     /* Tamanho do símbolo dentro da caixa */
+    --tech-icon-gap: 60px;           /* Distância/espaçamento ENTRE os ícones */
+    --tech-icon-dist-text: 24px;     /* Distância entre a descrição e os ícones */
+    --tech-icon-dist-border: 0px;    /* Ajuste para alinhar com a linha inferior da foto */
+
+    /* --- CONTROLE DE CARDS, GRIDS E ESPAÇAMENTOS --- */
+    --card-radius: 12px;             /* Arredondamento padrão das bordas */
+    --card-padding-lg: 28px 32px;    /* Espaçamento interno dos cards grandes */
+    --card-padding-sm: 16px 20px;    /* Espaçamento interno dos cards menores */
+    --section-gap: 40px;             /* Espaçamento entre as seções */
+    --grid-gap-projects: 20px;       /* Espaçamento na grade de projetos */
+    --grid-gap-contacts: 16px;       /* Espaçamento na grade de contatos */
+}
+
+/* ==========================================================================
+   2. RESET E ESTILOS BASE
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family-main);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   MENU FIXO SUPERIOR (NAVBAR)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(15, 20, 29, 0.95);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-container {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Lado Esquerdo - Botões de Ação */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Botões com o visual do GitHub */
+.btn-secondary {
+    background-color: var(--card-bg);
+    color: var(--text-white);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    border-color: var(--text-gold);
+    color: var(--text-gold);
+}
+
+/* Lado Direito - Links do Menu */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-link {
+    color: var(--text-gray);
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--text-gold);
+}
+
+.portfolio-wrapper {
+    max-width: 1000px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--section-gap);
+    padding-top: 100px;
+    scroll-margin-top: 100px;
+}
+
+section {
+    border-top: 1px solid var(--border-color);
+    padding-top: 40px;
+    scroll-margin-top: 70px;
+}
+
+section.hero-section {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* ==========================================================================
+   3. SEÇÃO HERO (CABEÇALHO)
+   ========================================================================== */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column; 
+}
+
+.subtitle {
+    color: var(--text-gold);
+    font-size: var(--font-size-subtitle);
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.main-title {
+    font-size: var(--font-size-title-main);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.main-title span.gold-text {
+    color: var(--text-gold);
+}
+
+.main-title span.white-text {
+    color: var(--text-white);
+}
+
+.description {
+    color: var(--text-gray);
+    font-size: var(--font-size-body);
+    line-height: 1.5;
+    max-width: 520px;
+    margin-bottom: var(--tech-icon-dist-text); 
+}
+
+/* Container de Ícones Tecnológicos */
+.tech-icons-container {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    gap: var(--tech-icon-gap);
+    margin-bottom: var(--tech-icon-dist-border);
+}
+
+.tech-icon-item {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--card-radius);
+    background-color: transparent;
+    border: 1.5px solid var(--text-gold);
+    color: var(--text-gold);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: var(--tech-icon-box-size);
+    height: var(--tech-icon-box-size);
+    font-size: var(--tech-icon-font-size);
+}
+
+.tech-icon-item:hover {
+    background-color: rgba(229, 179, 66, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(229, 179, 66, 0.2);
+}
+
+/* Tooltip dos Ícones */
+.tech-icon-item .tooltip {
+    visibility: hidden;
+    opacity: 0;
+    width: max-content;
+    background-color: var(--card-hover-bg);
+    color: var(--text-white);
+    text-align: center;
+    border: 1px solid var(--text-gold);
+    border-radius: 6px;
+    padding: 5px 9px;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    position: absolute;
+    z-index: 10;
+    top: 125%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.tech-icon-item .tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent var(--text-gold) transparent;
+}
+
+.tech-icon-item:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Foto de Perfil & Efeito Hover / Brilho Dourado */
+.hero-avatar {
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    border-radius: 50%;
+    padding: var(--avatar-border-width);
+    background: linear-gradient(135deg, var(--text-gold), #8a7322, var(--text-gold));
+    flex-shrink: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.hero-avatar:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 0 25px rgba(229, 179, 66, 0.5), 0 0 50px rgba(229, 179, 66, 0.2);
+}
+
+.hero-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.hero-avatar:hover img {
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   4. OUTRAS SEÇÕES E COMPONENTES
+   ========================================================================== */
+.section-header {
+    font-size: var(--font-size-section);
+    font-weight: 700;
+    color: var(--text-white);
+    border-left: 4px solid var(--text-gold);
+    padding-left: 12px;
+    margin-bottom: 24px;
+}
+
+/* Card Sobre Mim */
+.about-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding-lg);
+}
+
+.about-card p {
+    color: var(--text-gray);
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.about-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Bloco Formação Acadêmica */
+.academic-block {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.academic-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.academic-title i {
+    color: var(--text-gold);
+    font-size: 16px;
+}
+
+.academic-list {
+    list-style: none;
+    padding-left: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.academic-list li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--text-gray);
+    font-size: var(--font-size-body);
+    line-height: 1.4;
+}
+
+.academic-list li::before {
+    content: "•";
+    color: var(--text-gold);
+    font-weight: bold;
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.academic-list li strong {
+    color: var(--text-white);
+    font-weight: 700;
+}
+
+/* Habilidades */
+.skills-grid {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--card-radius);
+    padding: var(--card-padding-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    max-width: 300px;
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.skill-icon {
+    color: var(--text-gold);
+    font-size: 22px;
+}
+
+.skill-title {
+    font-size: var(--font-size-card-title);
+    font-weight: 700;
+    color: var(--text-white);
+    white-space: nowrap;
+}
+
+.skill-card:hover {
+    background-color: var(--card-bg);
+    border-color: var(--text-gold);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transform: translateY(-2px);
+}
+
+.skill-desc {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    color: var(--text-gray);
+    font-size: var(--font-size-sm);
+    line-height: 1.4;
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-desc {
+    max-height: 100px;
+    opacity: 1;
+    margin-top: 6px;
+}
+
+/* ==========================================================================
+   PROJETOS COM EXPANSÃO DE CARD
+   ========================================================================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--grid-gap-projects);
+    align-items: start;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.project-card:hover {
+    border-color: var(--text-gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(229, 179, 66, 0.15);
+    transform: translateY(-3px);
+}
+
+.project-title {
+    font-size: var(--font-size-body);
+    font-weight: 800;
+    color: var(--text-white);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.project-title span {
+    color: var(--text-gold);
+}
+
+.project-desc {
+    color: var(--text-gray);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+}
+
+.project-expand-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.project-preview-img {
+    width: 100%;
+    height: 140px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid rgba(229, 179, 66, 0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--text-gold);
+    color: #0f141d;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    width: max-content;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.project-btn:hover {
+    background-color: #f5c558;
+    transform: translateX(3px);
+}
+
+.project-card:hover .project-expand-content {
+    max-height: 250px;
+    opacity: 1;
+    margin-top: 18px;
+}
+
+/* Contatos */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: var(--grid-gap-contacts);
+}
+
+.contact-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.contact-card:hover {
+    border-color: var(--text-gold);
+    transform: translateY(-2px);
+}
+
+.contact-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: rgba(229, 179, 66, 0.15);
+    color: var(--text-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.contact-label {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-value {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-white);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 12px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid var(--border-color);
+    transition: color 0.3s ease;
+    cursor: default;
+    margin-top: auto;
+}
+
+footer:hover {
+    color: var(--text-gold);
+}
+
+/* ==========================================================================
+   5. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 20px;
+    }
+
+    .navbar {
+        height: auto;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+
+    .nav-link {
+        font-size: 11px;
+    }
+
+    .hero-section {
+        flex-direction: column-reverse;
+        text-align: center;
+        align-items: center;
+    }
+
+    .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tech-icons-container {
+        justify-content: center;
+        margin-top: 20px;
+        gap: 16px;
+    }
+
+    .skills-grid {
+        flex-direction: column;
+    }
+
+    .skill-card {
+        max-width: 100%;
+    }
+}
